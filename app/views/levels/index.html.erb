@@ -2,8 +2,10 @@
 
 <div class="col s6 offset-s3">
   <% if @levels.empty? %>
-    <h2>There are no available levels ... :(</h2>
-    <h3>Be the first to <%= link_to 'add one', new_level_path %></h3>
+    <div class="center-align">
+      <h2>There are no available levels ... :(</h2>
+      <h3>Be the first to <%= link_to 'add one', new_level_path %></h3>
+    </div>
   <% else %>
     <ul class="collection with-header">
       <li class="collection-header center">
