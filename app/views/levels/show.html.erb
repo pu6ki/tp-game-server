@@ -1,19 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, "Level \"#{@level.name}\"") %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @level.name %>
-</p>
+<div class="col s8 offset-s2">
+  <%= render 'level_heading' %>
 
-<p>
-  <strong>Code:</strong>
-  <%= @level.code %>
-</p>
+  <h5>Source code:</h5>
+  <blockquote class="level-content">
+    <pre><code class="language-markup"><%= @level.code %></code></pre>
+  </blockquote>
 
-<p>
-  <strong>User:</strong>
-  <%= @level.user %>
-</p>
-
-<%= link_to 'Edit', edit_level_path(@level) %> |
-<%= link_to 'Back', levels_path %>
+  <div class="center-align">
+    <a href="<%= play_path(@level) %>" class="waves-effect waves-light btn-large"><i class="material-icons right">play_circle_outline</i>Play</a>
+  </div>
+</div>

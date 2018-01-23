@@ -1,5 +1,6 @@
 class LevelsController < ApplicationController
   before_action :set_level, only: [:show, :play, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /levels
   def index
@@ -29,7 +30,7 @@ class LevelsController < ApplicationController
 
   # POST /levels
   def create
-    @level = Level.new(level_params)
+    @level = current_user.levels.new(level_params)
 
     if @level.save
       redirect_to @level, notice: 'Level was successfully created.'
@@ -56,7 +57,7 @@ class LevelsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_level
-    @level = Level.find(params[:id])
+    @level = current_user.levels.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
