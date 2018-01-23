@@ -1,6 +1,7 @@
 class LevelsController < ApplicationController
-  before_action :set_level, only: [:show, :play, :edit, :update, :destroy]
+  before_action :set_level, only: [:show, :play]
   before_action :authenticate_user!
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /levels
   def index
@@ -63,5 +64,10 @@ class LevelsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def level_params
     params.require(:level).permit(:name, :code, :user_id)
+  end
+
+  def correct_user
+    @level = current_user.levels.find(params[:id])
+    redirect_to root_url if @level.nil?
   end
 end

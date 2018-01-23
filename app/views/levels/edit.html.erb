@@ -1,6 +1,5 @@
-<h1>Editing Level</h1>
+<% provide(:title, "Editing level \"#{@level.name}\"") %>
 
-<%= render 'form', level: @level %>
+<h2 class="center">Editing level <span class="grey-text">"<%= @level.name %>"</span></h2>
 
-<%= link_to 'Show', @level %> |
-<%= link_to 'Back', levels_path %>
+<%= render 'form', level: @level, button_title: 'Update' %>
