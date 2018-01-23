@@ -1,32 +1,19 @@
-<%= form_with(model: level, local: true) do |form| %>
-  <% if level.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(level.errors.count, "error") %> prohibited this level from being saved:</h2>
+<div class="col s6 offset-s3 center">
+  <%= form_with(model: level, local: true) do |form| %>
+    <div class="input-field">
+      <i class="material-icons prefix">info</i>
+      <%= form.label :name %>
+      <%= form.text_field :name, id: :level_name %>
+    </div>
 
-      <ul>
-      <% level.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="input-field">
+      <i class="material-icons prefix">code</i>
+      <%= form.label :code %>
+      <%= form.text_area :code, id: :level_code, class: 'materialize-textarea' %>
+    </div>
+
+    <div class="input-field">
+      <%= form.submit 'Create level', class: 'waves-effect waves-light btn' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :level_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :code %>
-    <%= form.text_area :code, id: :level_code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :level_user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
