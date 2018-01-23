@@ -1,24 +1,28 @@
 <div class="col s10 offset-s1 center">
 
-  <h1>Leaderboard for "<%= @scores.first.level.name %>"</h1>
+  <% if @scores.empty? %>
+    <h2>No scores available</h2>
+  <% else %>
+    <h1>Leaderboard for "<%= @scores.first.level.name %>"</h1>
 
-  <table class="centered bordered highlight">
-    <thead>
-      <tr>
-        <th>Score</th>
-        <th>User</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @scores.each do |score| %>
+    <table class="centered bordered highlight">
+      <thead>
         <tr>
-          <td><%= score.value %></td>
-          <td><%= score.user.email %></td>
+          <th>Score</th>
+          <th>User</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br />
+      </thead>
+      <tbody>
+        <% @scores.each do |score| %>
+          <tr>
+            <td><%= score.value %></td>
+            <td><%= score.user.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  
+    <br />
+  <% end %>
 
 </div>
