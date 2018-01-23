@@ -1,5 +1,5 @@
 class LevelsController < ApplicationController
-  before_action :set_level, only: [:show, :edit, :update, :destroy]
+  before_action :set_level, only: [:show, :play, :edit, :update, :destroy]
 
   # GET /levels
   def index
@@ -12,6 +12,10 @@ class LevelsController < ApplicationController
       format.html { render :show }
       format.js   { render plain: @level.code }
     end
+  end
+
+  # GET /levels/1/play
+  def play
   end
 
   # GET /levels/new
