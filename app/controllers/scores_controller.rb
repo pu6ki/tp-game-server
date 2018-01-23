@@ -25,7 +25,10 @@ class ScoresController < ApplicationController
     @score = @level.scores.build(score_params)
 
     if @score.save
-      redirect_to([@score.level, @score], notice: 'Score was successfully created.')
+      respond_to do |format|
+        format.json { render json: @score }
+        format.html { redirect_to([@score.level, @score], notice: 'Score was successfully created.') }
+      end
     else
       render action: 'new'
     end
@@ -34,7 +37,10 @@ class ScoresController < ApplicationController
   # PUT levels/1/scores/1
   def update
     if @score.update_attributes(score_params)
-      redirect_to([@score.level, @score], notice: 'Score was successfully updated.')
+      respond_to do |format|
+        format.json { render json: @score }
+        format.html { redirect_to([@score.level, @score], notice: 'Score was successfully updated.') }
+      end
     else
       render action: 'edit'
     end
