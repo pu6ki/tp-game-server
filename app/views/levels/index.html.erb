@@ -6,11 +6,8 @@
     <h3>Be the first to <%= link_to 'add one', new_level_path %></h3>
   <% else %>
     <ul class="collection with-header">
-      <li class="collection-header">
+      <li class="collection-header center">
         <h4>Levels</h4>
-        <a href="<%= new_level_path %>"class="btn waves-effect waves-light">
-          <i class="material-icons right">add</i>Add a new level
-        </a>
       </li>
       <% @levels.each do |level| %>
         <li class="collection-item avatar">
@@ -21,5 +18,10 @@
         <li>
       <% end %>
     </ul>
+     <div class="fixed-action-btn">
+      <a href="<%= new_level_path %>"class="btn waves-effect btn-floating btn-large">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
   <% end %>
 </div>
