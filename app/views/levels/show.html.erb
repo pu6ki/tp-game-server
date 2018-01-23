@@ -11,10 +11,10 @@
   <div class="center-align">
     <a href="<%= play_path(@level) %>" class="waves-effect waves-light btn-large"><i class="material-icons right">play_circle_outline</i>Play</a>
   </div>
-  
+
   <br>
 
   <div class="center-align">
-    <a href="/levels/<%= @level.id%>/scores" class="waves-effect waves-light btn-large"><i class="material-icons right">info_outline</i>Leaderboard</a>
+    <a href="<%= level_scores_path(@level) %>" class="waves-effect waves-light btn-large"><i class="material-icons right">info_outline</i>Leaderboard</a>
   </div>
 </div>
