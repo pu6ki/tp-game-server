@@ -1,31 +1,20 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'Levels') %>
 
-<h1>Levels</h1>
+<div class="col s8 offset-s2">
+  <% if @levels.empty? %>
+    <h2>There are no available levels ... :(</h2>
+    <h3>Be the first to <%= link_to 'add one', new_level_path %></h3>
+  <% else %>
+    <ul class="collection with-header">
+      <li class="collection-header"><h4>Levels</h4></li>
+      <% @levels.each do |level| %>
+        <li class="collection-item avatar">
+          <span class="title">Level #<%= level.id%> - "<%= level.name %>"</span>
+          <p class="grey-text">by <%= level.user.email %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @levels.each do |level| %>
-      <tr>
-        <td><%= level.name %></td>
-        <td><%= level.code %></td>
-        <td><%= level.user %></td>
-        <td><%= link_to 'Show', level %></td>
-        <td><%= link_to 'Edit', edit_level_path(level) %></td>
-        <td><%= link_to 'Destroy', level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Level', new_level_path %>
+          <a href="<%= play_path(level) %>" class="secondary-content"><i class="medium material-icons">play_circle_filled</i></a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

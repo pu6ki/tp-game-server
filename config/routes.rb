@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :levels
-  get 'levels/:id/play' => 'levels#play'
+  get 'levels/:id/play' => 'levels#play', as: 'play'
 end
