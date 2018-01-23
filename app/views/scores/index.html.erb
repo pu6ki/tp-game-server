@@ -10,11 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <%
-        @scores.sort_by {|score| score.value}
-        @scores = @scores.reverse
-        @scores.each do |score|
-       %>
+      <%= @scores.each do |score| %>
         <tr>
           <td><%= score.value %></td>
           <td><%= score.user.email %></td>
