@@ -1,0 +1,28 @@
+<div class="col s10 offset-s1 center">
+
+  <h1>Leaderboard for "<%= @scores.first.level.name %>"</h1>
+
+  <table class="centered bordered highlight">
+    <thead>
+      <tr>
+        <th>Score</th>
+        <th>User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%
+        @scores.sort_by {|score| score.value}
+        @scores = @scores.reverse
+        @scores.each do |score|
+       %>
+        <tr>
+          <td><%= score.value %></td>
+          <td><%= score.user.email %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br />
+
+</div>

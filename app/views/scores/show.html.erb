@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Value:</b>
+  <%= @score.value %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @score.level %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @score.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_level_score_path(@score.level, @score) %> |
+<%= link_to 'Back', level_scores_path(@score.level) %>
