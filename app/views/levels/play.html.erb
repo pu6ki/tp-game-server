@@ -1,6 +1,11 @@
-<h3>Level #<%= @level.id %> - "<%= @level.name %>"</h3>
-<h5 class="grey-text">Author: <%= @level.user.email %></h5>
+<% provide(:title, "Playing level \"#{@level.name}\"") %>
 
-<canvas id="tutorial" width="800" height="600"></canvas>
+<div class="col s8 offset-s2">
+  <%= render 'level_heading' %>
 
-<%= javascript_include_tag level_path(@level, format: :js) %>
+  <div class="col s10 offset-s1">
+  <canvas id="tutorial" width="1000" height="600"></canvas>
+  </div>
+
+  <%= javascript_include_tag level_path(@level, format: :js) %>
+</div>

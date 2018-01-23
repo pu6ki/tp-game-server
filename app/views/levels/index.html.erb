@@ -1,6 +1,6 @@
 <% provide(:title, 'Levels') %>
 
-<div class="col s8 offset-s2">
+<div class="col s6 offset-s3">
   <% if @levels.empty? %>
     <h2>There are no available levels ... :(</h2>
     <h3>Be the first to <%= link_to 'add one', new_level_path %></h3>
@@ -9,11 +9,11 @@
       <li class="collection-header"><h4>Levels</h4></li>
       <% @levels.each do |level| %>
         <li class="collection-item avatar">
-          <span class="title">Level #<%= level.id%> - "<%= level.name %>"</span>
-          <p class="grey-text">by <%= level.user.email %></p>
-
-          <a href="<%= play_path(level) %>" class="secondary-content"><i class="medium material-icons">play_circle_filled</i></a>
-        </li>
+          <a href="<%= level_path(level) %>" class="title"><strong>Level #<%= level.id %></strong></a>
+          <p><span class="grey-text">Name:</span> "<%= level.name %>"</p>
+          <p><span class="grey-text">Author:</span> <%= level.user.email %></p>
+          <a href="<%= play_path(level) %>" class="secondary-content"><i class="material-icons medium">play_circle_filled</i></a>
+        <li>
       <% end %>
     </ul>
   <% end %>
