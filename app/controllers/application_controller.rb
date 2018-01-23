@@ -1,10 +1,13 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  skip_before_action :verify_authenticity_token, if: :js_request?
+  protect_from_forgery with: :exception, unless: proc { js_request? || json_request? }
 
   private
 
   def js_request?
     request.format.js?
+  end
+
+  def json_request?
+    request.format.json?
   end
 end
